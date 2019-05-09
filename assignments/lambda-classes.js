@@ -94,6 +94,7 @@ const megan = new Student({
 
 megan.PRAssignment('Javascript');
 megan.listsSubjects();
+megan.sprintChallenge("node.js");
 
 // INSTRUCTOR TESTS
 const fred = new Instructor({
@@ -110,3 +111,17 @@ const fred = new Instructor({
   fred.grade(megan, "CSS");
 
   // PROJECT MANAGER TESTS
+  const sarah = new ProjectManager({
+    name: "Sarah",
+    location: "London",
+    age: 32,
+    gender: "female",
+    favLanguage: "Ruby",
+    speciality: "Front-end",
+    catchPhrase: `Don't forget the homies`,
+    gradClassName: "WEBEU1",
+    favInstructor: "Fred",
+  });
+
+  sarah.standUp('WEBEU2 Sarah');
+  sarah.debugsCode(megan, "HTML");
