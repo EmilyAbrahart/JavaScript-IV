@@ -31,19 +31,25 @@ class Instructor extends Person {
   }
 
   giveGrade(student) {
-    let isGain = Math.random();
+    let isGain = Math.random() < 0.5;
     let newGrade = Math.round(Math.random() * 20);
-    if (isGain < 0.7) {
+    if (isGain) {
       student.grade = student.grade += newGrade;
       console.log(
-        `Well done, ${student.name}! Your grade went up by ${newGrade}`
+        `Well done, ${
+          student.name
+        }! Your grade went up by ${newGrade} - your new grade is ${
+          student.grade
+        }.`
       );
-    } else student.grade = student.grade -= newGrade;
-    console.log(
-      `Unfortunately your grade went down by ${newGrade}. Keep trying, ${
-        student.name
-      }!`
-    );
+    } else {
+      student.grade = student.grade -= newGrade;
+      console.log(
+        `Unfortunately your grade went down by ${newGrade} - your new grade is ${
+          student.grade
+        }. Keep trying, ${student.name}!`
+      );
+    }
   }
 }
 
