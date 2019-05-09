@@ -92,36 +92,36 @@ const megan = new Student({
   favSubjects: ["HTML", "CSS", "Javascript", "Python"]
 });
 
-megan.PRAssignment('Javascript');
+megan.PRAssignment("Javascript");
 megan.listsSubjects();
 megan.sprintChallenge("node.js");
 
 // INSTRUCTOR TESTS
 const fred = new Instructor({
-    name: "Fred",
-    location: "Bedrock",
-    age: 37,
-    gender: "male",
-    favLanguage: "JavaScript",
-    speciality: "Front-end",
-    catchPhrase: `Don't forget the homies`
-  });
-  
-  fred.demo("Javascript");
-  fred.grade(megan, "CSS");
+  name: "Fred",
+  location: "Bedrock",
+  age: 37,
+  gender: "male",
+  favLanguage: "JavaScript",
+  speciality: "Front-end",
+  catchPhrase: `Don't forget the homies`
+});
 
-  // PROJECT MANAGER TESTS
-  const sarah = new ProjectManager({
-    name: "Sarah",
-    location: "London",
-    age: 32,
-    gender: "female",
-    favLanguage: "Ruby",
-    speciality: "Front-end",
-    catchPhrase: `Don't forget the homies`,
-    gradClassName: "WEBEU1",
-    favInstructor: "Fred",
-  });
+fred.demo("Javascript");
+fred.grade(megan, "CSS");
 
-  sarah.standUp('WEBEU2 Sarah');
-  sarah.debugsCode(megan, "HTML");
+// PROJECT MANAGER TESTS
+const sarah = new ProjectManager({
+  name: "Sarah",
+  location: "London",
+  age: 32,
+  gender: "female",
+  favLanguage: "Ruby",
+  speciality: "Front-end",
+  catchPhrase: `Don't forget the homies`,
+  gradClassName: "WEBEU1",
+  favInstructor: "Fred"
+});
+
+sarah.standUp("WEBEU2 Sarah");
+sarah.debugsCode(megan, "HTML");
