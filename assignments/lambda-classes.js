@@ -33,7 +33,7 @@ class Instructor extends Person {
   giveGrade(student) {
     let isGain = Math.random();
     let newGrade = Math.round(Math.random() * 20);
-    if (isGain > 0.7) {
+    if (isGain < 0.7) {
       student.grade = student.grade += newGrade;
       console.log(
         `Well done, ${student.name}! Your grade went up by ${newGrade}`
@@ -114,6 +114,15 @@ const george = new Person({
 
 george.speak();
 
+const mary = new Person({
+  name: "Mary",
+  location: "France",
+  age: 50,
+  gender: "female"
+});
+
+mary.speak();
+
 // STUDENT TESTS
 const megan = new Student({
   name: "Megan",
@@ -131,6 +140,22 @@ megan.listsSubjects();
 megan.sprintChallenge("node.js");
 megan.graduate();
 
+const bob = new Student({
+  name: "Bob",
+  location: "Germany",
+  age: 23,
+  gender: "male",
+  previousBackground: "engineer",
+  className: "WEB3",
+  favSubjects: ["Maths", "Physics", "Javascript", "React"],
+  grade: 60
+});
+
+bob.PRAssignment("CSS");
+bob.listsSubjects();
+bob.sprintChallenge("React");
+bob.graduate();
+
 // INSTRUCTOR TESTS
 const fred = new Instructor({
   name: "Fred",
@@ -143,8 +168,22 @@ const fred = new Instructor({
 });
 
 fred.demo("Javascript");
-fred.grade(megan, "CSS");
+fred.grade(bob, "CSS");
 fred.giveGrade(megan);
+
+const steve = new Instructor({
+  name: "Steve",
+  location: "Manchester",
+  age: 35,
+  gender: "male",
+  favLanguage: "React",
+  speciality: "Front-end",
+  catchPhrase: `Don't forget the homies`
+});
+
+steve.demo("React");
+steve.grade(bob, "HTML");
+steve.giveGrade(bob);
 
 // PROJECT MANAGER TESTS
 const sarah = new ProjectManager({
@@ -161,4 +200,21 @@ const sarah = new ProjectManager({
 
 sarah.standUp("WEBEU2 Sarah");
 sarah.debugsCode(megan, "HTML");
-sarah.giveGrade(megan);
+sarah.giveGrade(bob);
+
+const rachel = new ProjectManager({
+  name: "Rachel",
+  location: "Denmark",
+  age: 28,
+  gender: "female",
+  favLanguage: "CSS",
+  speciality: "Front-end",
+  catchPhrase: `Don't forget the homies`,
+  gradClassName: "WEBEU1",
+  favInstructor: "Steve"
+});
+
+rachel.giveGrade(bob);
+rachel.giveGrade(bob);
+rachel.giveGrade(bob);
+rachel.giveGrade(bob);
