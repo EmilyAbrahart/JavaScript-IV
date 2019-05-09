@@ -29,6 +29,22 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}!`);
   }
+
+  giveGrade(student) {
+    let isGain = Math.random();
+    let newGrade = Math.round(Math.random() * 20);
+    if (isGain > 0.7) {
+      student.grade = student.grade += newGrade;
+      console.log(
+        `Well done, ${student.name}! Your grade went up by ${newGrade}`
+      );
+    } else student.grade = student.grade -= newGrade;
+    console.log(
+      `Unfortunately your grade went down by ${newGrade}. Keep trying, ${
+        student.name
+      }!`
+    );
+  }
 }
 
 // STUDENT CLASS
@@ -38,6 +54,7 @@ class Student extends Person {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
   }
 
   listsSubjects() {
@@ -50,6 +67,22 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun a sprint challenge on ${subject}!`);
+  }
+
+  graduate() {
+    if (this.grade > 70) {
+      console.log(
+        `Congratulations, ${
+          this.name
+        }! You're ready to graduate from Lambda School!`
+      );
+    } else {
+      console.log(
+        `Unfortunately you're not ready to graduate yet, ${
+          this.name
+        }. Keep practicing!`
+      );
+    }
   }
 }
 
@@ -89,12 +122,14 @@ const megan = new Student({
   gender: "female",
   previousBackground: "artist",
   className: "WEB4",
-  favSubjects: ["HTML", "CSS", "Javascript", "Python"]
+  favSubjects: ["HTML", "CSS", "Javascript", "Python"],
+  grade: 50
 });
 
 megan.PRAssignment("Javascript");
 megan.listsSubjects();
 megan.sprintChallenge("node.js");
+megan.graduate();
 
 // INSTRUCTOR TESTS
 const fred = new Instructor({
@@ -109,6 +144,7 @@ const fred = new Instructor({
 
 fred.demo("Javascript");
 fred.grade(megan, "CSS");
+fred.giveGrade(megan);
 
 // PROJECT MANAGER TESTS
 const sarah = new ProjectManager({
@@ -125,3 +161,4 @@ const sarah = new ProjectManager({
 
 sarah.standUp("WEBEU2 Sarah");
 sarah.debugsCode(megan, "HTML");
+sarah.giveGrade(megan);
